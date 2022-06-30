@@ -1,5 +1,3 @@
-package Desafios;
-
 import java.util.Arrays;
 
 public class Desafio01 {

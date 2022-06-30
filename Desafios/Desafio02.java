@@ -1,5 +1,3 @@
-package Desafios;
-
 import java.util.Scanner;
 
 public class Desafio02 {
@@ -31,8 +29,9 @@ public class Desafio02 {
         Scanner scan = new Scanner(System.in);
         System.out.println("Insira o número:");
         int num = scan.nextInt() ;
-
+        
 
         System.out.println(solucao.inverter(num));
+        scan.close();
     }
 }
