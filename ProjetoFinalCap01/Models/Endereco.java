@@ -1,3 +1,5 @@
+package Models;
+
 public class Endereco {
     
     private int cep;
@@ -8,7 +10,9 @@ public class Endereco {
     private String estado;
     private String pais;
 
-    Endereco( int cep, int numero,String logradouro, String bairro,String  cidade, 
+    public Endereco(){}
+    
+    public Endereco( int cep, int numero,String logradouro, String bairro,String  cidade, 
               String estado, String pais ) {
         
         this.cep = cep;
