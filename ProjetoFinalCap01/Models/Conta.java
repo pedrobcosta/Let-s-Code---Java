@@ -12,7 +12,10 @@ public abstract class Conta {
     
     public BigDecimal sacar(BigDecimal valor) {
         
-        if(this.titular instanceof PessoaJuridica)
+        if(valor.compareTo(this.getSaldo()) > 0)
+            throw new IllegalArgumentException("Saldo insuficiente");
+
+        else if(this.titular instanceof PessoaJuridica)
             this.saldo = this.saldo.subtract(
                             valor.multiply(
                                 BigDecimal.valueOf(1.005)));
