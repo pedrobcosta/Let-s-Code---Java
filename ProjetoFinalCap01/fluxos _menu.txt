@@ -1,0 +1,50 @@
+
+
+"Bem vindo ao Seu Banco!"
+
+"1 - Digite número da sua conta." 
+"2 - Crie agora a sua conta!"
+
+1 
+"1 - Sacar"
+"2 - Depositar"
+"99 - passar para o próximo mes" (simular investimento)
+
+1.1 
+"Digite o valor a ser sacado."
+
+1.1.1
+"Saque realizado"
+
+1.1.2
+"Salo insuficiente"
+
+Volta para 1
+
+2.1
+"Informe o valor a se depositado"
+2.1.1
+"Deposito realizao com sucesso"
+
+2
+"1 - Pessoa Física"
+"2 - Pessoa Jurídica"
+
+2.1
+"dados de cadastro PF"
+
+
+2.2
+"dados de cadastro PJ"
+
+
+2.1.1
+"1 - Nova conta Corrente"
+"2 - Nova conta Investimento"
+"3 - Nova conta Poupança"
+
+2.2.1
+"1 - Nova conta Corrente"
+"2 - Nova conta Investimento"
+
+retorna para tela e opçoes logado, pode printar num conta e nome cliente
