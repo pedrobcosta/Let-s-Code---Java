@@ -9,7 +9,12 @@ public abstract class Conta {
     private BigDecimal saldo = BigDecimal.valueOf(0);
     private Pessoa titular;
 
-    
+    public Conta(int numeroDaConta, int agencia, Pessoa titular) {
+        this.numeroDaConta = numeroDaConta;
+        this.agencia = agencia;
+        this.titular = titular;
+    }
+
     public BigDecimal sacar(BigDecimal valor) {
         
         if(this.titular instanceof PessoaJuridica) {

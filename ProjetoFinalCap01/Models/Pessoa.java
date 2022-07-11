@@ -6,7 +6,7 @@ public class Pessoa {
     protected Endereco endereco;
     protected String email;
 
-
+    public Pessoa() {}
     public Pessoa(String telefone, Endereco endereco, String email) {
         this.telefone = telefone;
         this.endereco = endereco;

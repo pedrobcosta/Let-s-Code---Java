@@ -4,6 +4,11 @@ import java.math.BigDecimal;
 
 public class ContaCorrente extends Conta{
     
+
+    public ContaCorrente(int numeroDaConta, int agencia, Pessoa titular) {
+        super(numeroDaConta, agencia, titular);
+    }
+
     public BigDecimal transferir(BigDecimal valor, Conta contaDestino) {
         // titular PJ
         if(this.getTitular() instanceof PessoaJuridica) {
@@ -28,5 +33,17 @@ public class ContaCorrente extends Conta{
         }
 
         return valor;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Dados da Conta Corrente:");
+        sb.append(" Agência: " + this.getAgencia() );
+        sb.append(" Número " + this.getNumeroDaConta() );
+        sb.append(" Saldo: " + this.getSaldo() );
+
+        return sb.toString();
+        
     }
 }
