@@ -1,14 +1,24 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class Desafio02 {
     
     public static void main(String[] args) {
 
-            int[] array1 = {1,2,3,4};
-            int[] array2 = {2,5};
-            ArrayList<Integer> listaFinal = new Desafio02().formatarListas(array1,array2);
+            System.out.println("Digite a lista de números separados por vírgula");
+            System.out.println("Ex.: 1,2,3\n");
+            Scanner scan = new Scanner(System.in);
+
+            System.out.print("Primeira lista: ");
+            int[] array1 = stringToIntArray(scan.nextLine().split(","));
+            System.out.print("Segunda lista: ");
+            int[] array2 = stringToIntArray(scan.nextLine().split(","));
+
+            List<Integer> listaFinal = new Desafio02().formatarListas(array1,array2);
+            
+            System.out.println("\nLista ordenada e formatada:");
             for(int i=0; i<listaFinal.size(); i++) {
                 if(i == listaFinal.size()-1)
                     System.out.print(listaFinal.get(i) + "");
@@ -70,5 +80,15 @@ public class Desafio02 {
             i++;    j--;
         }
         return array;
+    }
+
+    public static int[] stringToIntArray(String[] stringArray) {
+
+        int[] intArray = new int[stringArray.length];
+
+        for (int index = 0; index < intArray.length; index++) 
+            intArray[index] = Integer.parseInt(stringArray[index]);
+        
+        return intArray;
     }
 }
