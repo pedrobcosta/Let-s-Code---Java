@@ -61,18 +61,16 @@ public class Desafio05 {
     public static List<RotuloDeConversao> caminhoDeConversao(RotuloDeConversao conversao, HashMap<RotuloDeConversao,BigDecimal> conversoes) {
         
         List<RotuloDeConversao> caminho = new ArrayList<>();
-        
-        if(conversoes.containsKey(conversao))
-            return caminho;
 
         caminho.add(conversao);
         RotuloDeConversao ultimaConversao = conversao;
 
+        if(conversoes.containsKey(ultimaConversao))
+            return caminho;
         do {
 
             for (RotuloDeConversao currentKey : conversoes.keySet()) {
-                
-
+                System.out.println(currentKey + " " + currentKey.compareTo(ultimaConversao));
                 if(currentKey.compareTo(ultimaConversao) != 0) {
                     caminho.add(currentKey);
                     ultimaConversao = currentKey;
@@ -81,7 +79,8 @@ public class Desafio05 {
             }
             System.out.println(caminho);
             System.out.println(ultimaConversao);
-        } while(conversao.compareTo(ultimaConversao)!= 0); 
+            System.out.println(conversao.compareTo(ultimaConversao));
+        } while(conversao.compareTo(ultimaConversao)== 0); 
 
         return caminho;
     }
