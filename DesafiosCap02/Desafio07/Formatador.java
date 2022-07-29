@@ -20,7 +20,6 @@ public class Formatador {
 
         String s = removerAcentuacao(texto);
         s = s.replaceFirst(""+s.charAt(0), (""+s.charAt(0)).toLowerCase());
-        s = s.replace("\\.|-|_", "");
         Pattern pattern = Pattern.compile("(\\s+)(\\w)");
         Matcher matcher = pattern.matcher(s);
         return matcher.replaceAll(x -> x.group(2).toUpperCase()); 
