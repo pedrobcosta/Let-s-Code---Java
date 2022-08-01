@@ -30,6 +30,9 @@ public class Desafio05 {
         }
 
         System.out.println(grafo);
+        System.out.println("----------------------------- COMPLETANDO ------------------");
+        GrafoConversoesService.preencherReciprocas(grafo);
+        System.out.println(grafo);
         scan.close();
     }
 

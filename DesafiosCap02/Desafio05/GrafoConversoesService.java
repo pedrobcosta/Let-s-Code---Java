@@ -1,33 +1,47 @@
 package Desafio05;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Map.Entry;
 
 public abstract class GrafoConversoesService {
     
-    public static HashMap<String,HashMap<String,BigDecimal>> 
-    preencherReciprocas(GrafoConversoes grafo) {
+    public boolean hasPathBFS(String origem, String destino, GrafoConversoes grafo) {
+
+        LinkedList<String> proximosNos = new LinkedList<>();
         
-        HashMap<String, HashMap<String, BigDecimal>> novoGrafo = new HashMap<>();
-
-        for (Entry<String,HashMap<String,BigDecimal>> entry1: grafo.entrySet()) {
-
-            novoGrafo.put(entry1.getKey(), entry1.getValue());
+        HashSet<String> visitado = new HashSet<>();
+        proximosNos.add(origem);
+        while(!proximosNos.isEmpty()) {
             
-            for(Entry<String,BigDecimal> entry2 : entry1.getValue().entrySet()) {
-                
-                String verticeReciproco = entry2.getKey();
-                String keyArestaReciproco = entry1.getKey();
-                System.out.println(entry2.getValue());
-                System.out.println(BigDecimal.ONE.divide(entry2.getValue(),2, RoundingMode.HALF_UP));
-                BigDecimal valueArestaReciproco = BigDecimal.ONE.divide(entry2.getValue(), RoundingMode.HALF_DOWN);
-                
-                this.adicionarVertice(verticeReciproco);
-                this.adicionarAresta(verticeReciproco, keyArestaReciproco, valueArestaReciproco);
-            };
+            String no = proximosNos.remove();
+            if(no == destino)
+                return true;
+            if(visitado.contains(no))
+                continue;
+            visitado.add(no);
+
+            for (Entry<String,BigDecimal> child: grafo.getGrafo().get(no).entrySet()) {
+                proximosNos.add(child.getKey());
+            }
         }
-        
+        return false;
     }
 
+    public void autopreencherGrafo(GrafoConversoes grafo) {
+        
+        for (Entry<String,HashMap<String,BigDecimal>> entry1: grafo.getGrafo().entrySet()) {
+
+            grafoToString += "\n" + entry1.getKey() + ":\n";
+
+            for(Entry<String,BigDecimal> entry2 : entry1.getValue().entrySet()) {
+                
+                grafoToString += "     " + entry2.getKey();
+                grafoToString += " - " + entry2.getValue() + "\n";
+            };
+        }
+    }
 }

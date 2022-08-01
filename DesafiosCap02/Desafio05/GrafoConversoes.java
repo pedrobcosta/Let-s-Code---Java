@@ -9,6 +9,10 @@ public class GrafoConversoes {
     
     private HashMap<String,HashMap<String,BigDecimal>> grafo;
 
+    public void setGrafo(HashMap<String, HashMap<String, BigDecimal>> grafo) {
+        this.grafo = grafo;
+    }
+
     public HashMap<String, HashMap<String, BigDecimal>> getGrafo() {
         return grafo;
     }
@@ -26,9 +30,14 @@ public class GrafoConversoes {
 
     public void adicionarAresta(String vertice, String keyAresta, BigDecimal valueAresta) {
 
-        HashMap<String, BigDecimal> aresta = this.grafo.get(vertice);
-        aresta.put(keyAresta, valueAresta);
-        grafo.put(vertice, aresta);
+        HashMap<String, BigDecimal> arestas = this.grafo.get(vertice);
+        arestas.put(keyAresta, valueAresta);
+        grafo.put(vertice, arestas);
+
+        BigDecimal valueReciproco = BigDecimal.ONE.divide(valueAresta,2, RoundingMode.HALF_UP);
+        HashMap<String, BigDecimal> arestasReciproca = this.grafo.get(keyAresta) == null ? new HashMap<>() : this.grafo.get(keyAresta);
+        arestasReciproca.put(vertice, valueReciproco);
+        grafo.put(keyAresta, arestasReciproca);
     }
 
     @Override
