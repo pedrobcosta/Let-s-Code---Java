@@ -1,6 +1,8 @@
 package Desafio05;
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.Scanner;
+import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -31,8 +33,9 @@ public class Desafio05 {
 
         System.out.println(grafo);
         System.out.println("----------------------------- COMPLETANDO ------------------");
-        GrafoConversoesService.preencherReciprocas(grafo);
-        System.out.println(grafo);
+        Stack<String> path = new Stack<>();
+        System.out.println(GrafoConversoesService.hasPathDFS(grafo,"GBP","USD", new HashMap<String,Boolean>(), path));
+        System.out.println(path);
         scan.close();
     }
 

@@ -7,19 +7,10 @@ import java.util.Map.Entry;
 
 public class GrafoConversoes {
     
-    private HashMap<String,HashMap<String,BigDecimal>> grafo;
-
-    public void setGrafo(HashMap<String, HashMap<String, BigDecimal>> grafo) {
-        this.grafo = grafo;
-    }
+    private HashMap<String,HashMap<String,BigDecimal>> grafo = new HashMap<>();
 
     public HashMap<String, HashMap<String, BigDecimal>> getGrafo() {
         return grafo;
-    }
-
-    public GrafoConversoes() {
-
-        this.grafo = new HashMap<>();
     }
 
     public void adicionarVertice(String vertice) {
